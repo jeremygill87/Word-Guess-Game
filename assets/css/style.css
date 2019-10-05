@@ -1,0 +1,87 @@
+body {
+    background-color: #090909;
+    height: 100%;
+    width: 100%;
+}
+
+.jumbotron-fluid{
+    background-color: #090909;
+}
+
+.display-4 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    text-align: center;
+}
+#turtleLogo {
+    margin-top: 10px;
+}
+@font-face {
+    font-family: 'chlorinarregular';
+    src: url('chlorinr-webfont.woff2') format('woff2'),
+         url('chlorinr-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+p,
+#subheading{
+    font-family: 'chlorinarregular', Arial,  sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+    color: #c8c8c8;
+    margin-bottom: 0px;
+}
+
+#mainbox {
+    width: 90%;
+    background-color: #090909;
+    border-style: double;
+    border-color: #8ed225;
+    border-width: 2px;
+    color: #c8c8c8;
+}
+
+#top-pic {
+    border-style: double;
+    border-color: #8ed225;
+    border-width: 1px;
+    text-align: center;
+    padding: 5px;
+}
+
+#target-word {
+    clear: both;
+    border-style: double;
+    border-color: #8ed225;
+    border-width: 1px;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+}
+
+#bottom-row {
+    border-style: double;
+    border-color: #8ed225;
+    border-width: 1px;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+}
+
+#hanging-man,
+#tracker-column,
+#letters-guessed,
+#win-loss-record {
+    border-style: double;
+    border-color: #8ed225;
+    border-width: 1px;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+}
+
+
+
+
