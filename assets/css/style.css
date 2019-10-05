@@ -33,6 +33,11 @@ p,
     color: #c8c8c8;
     margin-bottom: 0px;
 }
+#clickToBegin {
+    text-align: center;
+    color: #c8c8c8;
+    margin-bottom: 0px;   
+}
 
 #mainbox {
     width: 90%;
@@ -70,7 +75,7 @@ p,
     margin: 10px;
 }
 
-#hanging-man,
+#input-box,
 #tracker-column,
 #letters-guessed,
 #win-loss-record {

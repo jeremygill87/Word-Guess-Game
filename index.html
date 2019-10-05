@@ -7,9 +7,9 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
     <!--link to javascript-->
-    <script type="text/javascript" src="assets/javascript/game.js"></script>
+    <!--<script type="text/javascript" src="assets/javascript/game.js"></script-->
     
 </head>
 <body>
@@ -31,11 +31,14 @@
                         <h2>Guess the Word!</h2>
                         <br>
                         <div id="blanks"></div>
+                        <br>
                     </div>
                 </div>
                 <div class="row justify-content-center" id="bottom-row">
-                    <div class="col-md-4" id = "hanging-man">
-                        HANGING MAN HERE
+                    <div class="col-md-4" id = "input-box">
+                        <h2>YOUR GUESSES</h2>
+                        <br>                   
+                        <input type="text" id = "guessWord" placeholder = "Type in here to start!" onkeyup="function beginGame()">
                     </div>
                     <div class="col-md-4" id = "tracker-column">
                         <div class="row">
@@ -54,9 +57,23 @@
                 </div>
             </div>
         </div>
-
-console.log(hangmanGame); 
-
-        
+<script>    
+    $(document).ready(function hangmanGame() {
+        var words = ["pizza", "leonardo", "donatello", "michelangelo", "raphael", "shredder", "krang"];
+        var target = (Math.floor(Math.random() * words.length));
+        var targetWord = words[target];
+        var spaces = "_ ";
+        $("#blanks").append(spaces.repeat(targetWord.length));
+        var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+        console.log(targetWord);
+        console.log(spaces);
+        //get input from user
+            function beginGame() {
+            var guess = document.getElementById("#guessWord").value;
+            console.log(guess);
+            }
+        });
+</script>
+       
 </body>
 </html>

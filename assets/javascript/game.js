@@ -1,15 +1,19 @@
-    function hangmanGame() {
         var words = ["pizza", "leonardo", "donatello", "michelangelo", "raphael", "shredder", "krang"];
         var target = (Math.floor(Math.random() * words.length));
         var targetWord = words[target];
-
+        var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
         var answers = [ ];
-        function beginGame(){
+
+        document.onkeyup = function(event) {
+            var spaces = "_ ";
+            for (var i = 0; i < targetWord.length; i++)
+        }
+            var guess = event.key;
+
+        
         for (var i = 0; i < targetWord.length; i++) {
             answers[i] = "_ ";
         }
-        console.log(targetWord);
-        $("target-word").push(answers[i]);
 
         var remainingLetters = targetWord.length;
         
@@ -25,5 +29,4 @@
             }
         }
     }
-}
    
