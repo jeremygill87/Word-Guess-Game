@@ -1,58 +1,29 @@
+    function hangmanGame() {
+        var words = ["pizza", "leonardo", "donatello", "michelangelo", "raphael", "shredder", "krang"];
+        var target = (Math.floor(Math.random() * words.length));
+        var targetWord = words[target];
 
-    //assign variables
-    //create wordbank
-    var wordbank= ["pizza", "leonardo", "cowabunga", "raphael", "michelangelo", "shredder", "krang"];
-   
-   //picking a word
-    var targetWord = wordbank[Math.floor(Math.random() * wordbank.length)];
-    
-    // answer array
-    var answer = [];
-    for (var i = 0; i < wordbank.length; i++){
-        answer[i]= "_ ";
-    }
-    var remainingLetters = targetWord.length;
+        var answers = [ ];
+        function beginGame(){
+        for (var i = 0; i < targetWord.length; i++) {
+            answers[i] = "_ ";
+        }
+        console.log(targetWord);
+        $("target-word").push(answers[i]);
 
-    //actual code
-    while (remainingLetters > 0) {
-        var guess = prompt("Guess a letter");
-        for (var j = 0; j < wordbank.length; j++) {
-            if (wordbank[j] === guess) {
-                answer[j] = guess;
-                remainingLetters--;
+        var remainingLetters = targetWord.length;
+        
+        while (remainingLetters > 0) {
+            var guess = prompt("Guess a letter, or type 'exit' to stop playing");
+            if (guess === "exit") {
+                break;
+            } else {
+                for (var j = 0; j < words.length; j++) {
+                    answers[j] = guess;
+                    remainingLetters--;
+                }
             }
         }
-        // player input
-        // Update answer and remainingLetters
     }
-    var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-    var wrongletters = [];
-    var wins = 0;
-    var losses = 0;
-    var counter = 0;
-    var imagebank = [];
-
-    var showWins = document.getElementById("wins");
-    
-    console.log (nextUp);
-    
-    $("target-word").append(spaces);
-
-    //prototype of keydown function 
-    document.onkeydown = function(event){
-        var userInput = event.key;
-
-    // generate a word from wordbank
-
-    //While the word hasn't been guessed {
-        //show progress
-        //get input/guess
-    }
-
-    //if player guesses correct {
-        //generate letter into appropriate spot in spaces variable
-    }
-    //else {
-        //generate letter into wrongletters array
-    }
-    }
+}
+   
