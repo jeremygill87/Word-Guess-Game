@@ -8,8 +8,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
-    <!--link to javascript-->
-    <!--<script type="text/javascript" src="assets/javascript/game.js"></script-->
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
     
 </head>
 <body>
@@ -17,6 +16,8 @@
             <div class="container">
               <h1 class="display-4"><img src="assets/images/TurtlesLogo.jpg" id = "turtleLogo"></h1>
               <p class="lead" id="subheading">The Hang-Turtle Game!</p>
+              <audio src="assets/images/Music/Teenage Mutant Ninja Turtles - 1987.mp3" autoplay controls loop>
+              </audio>
             </div>
           </div>
         <div class= "row justify-content-center">
@@ -36,18 +37,16 @@
                 </div>
                 <div class="row justify-content-center" id="bottom-row">
                     <div class="col-md-4" id = "input-box">
-                        <h2>YOUR GUESSES</h2>
-                        <br>                   
-                        <input type="text" id = "guessWord" placeholder = "Type in here to start!" onkeyup="function beginGame()">
+                        <h2>HANGING MAN</h2>                 
                     </div>
-                    <div class="col-md-4" id = "tracker-column">
+                    <div class="col-md-6" id = "tracker-column">
                         <div class="row">
-                            <div class="col-md-4" id = "letters-guessed">
-                                LETTERS GUESSED
+                            <div class="col-md-6" id = "letters-guessed">
+                                <h6>LETTERS GUESSED</h6>
                             </div>
                         <div class="row">
-                            <div class="col-md-4" id= "win-loss-record">
-                                WIN LOSS RECORD
+                            <div class="col-md-12" id= "win-loss-record">
+                                <h6>WIN LOSS RECORD</h6>
                             </div>
                         </div>
                         </div>
@@ -57,23 +56,6 @@
                 </div>
             </div>
         </div>
-<script>    
-    $(document).ready(function hangmanGame() {
-        var words = ["pizza", "leonardo", "donatello", "michelangelo", "raphael", "shredder", "krang"];
-        var target = (Math.floor(Math.random() * words.length));
-        var targetWord = words[target];
-        var spaces = "_ ";
-        $("#blanks").append(spaces.repeat(targetWord.length));
-        var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-        console.log(targetWord);
-        console.log(spaces);
-        //get input from user
-            function beginGame() {
-            var guess = document.getElementById("#guessWord").value;
-            console.log(guess);
-            }
-        });
-</script>
-       
+
 </body>
 </html>

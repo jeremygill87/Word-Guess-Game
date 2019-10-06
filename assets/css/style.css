@@ -87,6 +87,19 @@ p,
     margin: 10px;
 }
 
+#letters-guessed {
+    height: 200px;
+    width: 200px;
+    margin-left: 20px;
+}
+
+#win-loss-record {
+    height: 200px;
+    width: 200px;
+    float: right;
+    margin-right: 20px;
+}
+
 
 
 
