@@ -1,50 +1,78 @@
 $(document).ready(function hangmanGame() {
-    var words = ["pizza", "leonardo", "donatello", "michelangelo", "raphael", "shredder", "krang"];
-    var target = (Math.floor(Math.random() * words.length));
-    var targetWord = words[target];
-    var spaces = "_ ";
-    var blankWord = [];
-    var letters = [];
-    var guess = "";
-    var win = 0;
-    var loss = 0;
-
-    //guess array that holds letters that users have already guessed
-    $("#blanks").append(spaces.repeat(targetWord.length)) ;
-
-    for (var i = 0; i < targetWord.length; i++ ){
-        blankWord.push("_ ");
+    var words = ["pizza", "michelangelo", "leonardo", "donatello", "raphael", "splinter", "krang", "shredder", "bebop", "rocksteady", "technodrome", "april"];
+    var guessingWord = words[Math.floor(Math.random() * words.length)];
+    var wins = 0;
+    var losses = 0;
+    var guessesLeft = 6;
+    var spaces = new Array(guessingWord.length).fill("_");
+    var userGuess = "";
+    var usedLetters = [];
+    
+    
+    function reset(){
+        guessingWord = words[Math.floor(Math.random() * words.length)];
+        guessesLeft = 6;
+        var spaces = new Array(guessingWord.length).fill("_");
+        usedLetters = [];
+        $("#blanks").text(spaces.join(" "));
+        usedLetters = [];
+        $("#letters-guessed").text(usedLetters);
+        console.log(guessingWord)
     }
     
-
-    document.onkeyup = function(event) {
-        guess = event.key;
-        (letters).push(guess);
-        $("#letters-guessed").text(letters);
-
-    if (targetWord.indexOf(guess) !== -1){
-        for (var i = 0; i < targetWord.length; i++) {
-            if (targetWord [i] === guess){
-                blankWord[i] = guess;
-            }
-            $("#blanks").text(blankWord.join(""));
+    
+    console.log(guessingWord);
+    $("#blanks").text(spaces.join(" "));
+    $("#guesses-left").text("Guesses left: " + guessesLeft)
+    $("#win-loss-record").text("Wins: "+ wins + " Losses: " + losses);
+    
+    
+    // reads user input for guess
+    document.onkeyup = function (event) {
+        space = spaces.join(" ")
+        userGuess = event.key.toLowerCase();
+    
+        if (usedLetters.indexOf(userGuess) === -1) {
+            usedLetters.push(userGuess);
+            $("#letters-guessed").text(usedLetters);
+            // guessesLeft--;
+            // $("#guesses-left").text(guessesLeft);
+                if(guessesLeft === 0){
+                    alert("You lost.  Idiot");
+                    losses++;
+                    $("#win-loss-record").text("Wins: "+ wins + " Losses: " + losses);
+                    reset();
+                }
+        } 
+        else{
+            alert("You already used that letter!")
         }
+        
+        // cycle through guessingWord and check for a match
+        if (guessingWord.indexOf(userGuess) !== -1) {
+            for (var i = 0; i < guessingWord.length; i++) {
+                if (guessingWord[i] === userGuess) {
+                    spaces[i] = userGuess;
+                    console.log(spaces + " " + userGuess);
+                    $("#blanks").text(spaces.join(" "));
+                        if(spaces.join("") === guessingWord){
+                            alert("COWABUNGA!");
+                            
+                            wins++
+                            $("#win-loss-record").text("Wins: "+ wins + " Losses: " + losses);
+                        }
+                }
+            }
+        }
+        else {
+            guessesLeft--;
+            $("#guesses-left").text(guessesLeft);
+        }
+    
     }
-   var blankWordString = blankWord.join("");
-   for (j = 0; j < 10; j++){
-   if (blankWordString === targetWord && j <= 10) {
-       win++;
-       console.log("Wins: " + win)
-       $("#win-loss-record").text("Wins: " + win + " Losses: " + loss);
-   }
-   else if (blankWordString !== targetWord && j == 10) {
-       loss++;
-       console.log("Losses: " + loss);
-       $("#win-loss-record").text("Wins: " + win + " Losses: " + loss);
-   }
-    console.log("Wins: " + win);
-    console.log("Losses: " + loss);
-    }
-    }
+    
+    $(".reset").click(function(){
+        reset();
+    })
 });
    
